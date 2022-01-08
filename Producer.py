@@ -24,3 +24,4 @@ for i in listusers:
     producer.send('projet_datamining', user)
     time.sleep(10) 
     
+    
