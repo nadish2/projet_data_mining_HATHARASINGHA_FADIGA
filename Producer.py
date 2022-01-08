@@ -9,7 +9,7 @@ Created on Fri Jan  7 01:15:44 2022
 #Envoie un fichier json ligne ligne par ligne dans le bus Kafka
 import json
 from kafka import KafkaProducer
-
+import time
 #On se connecte à la machine Kafka
 producer = KafkaProducer(bootstrap_servers='192.168.33.13:9092', value_serializer=lambda v: json.dumps(v).encode('utf-8'))
 
@@ -22,5 +22,5 @@ for i in listusers:
     user=i.strip()
     print(user)
     producer.send('projet_datamining', user)
-    
+    time.sleep(10) 
     
